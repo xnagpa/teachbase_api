@@ -1,0 +1,17 @@
+
+<% @courses.each do |course| %>
+  <p><%= course["id"] %></p>
+  <p><%= course["name"] %></p>
+<% end %>
+
+<% if !@error %>
+  <%= link_to "Previous page", index_path(@profile, page: previous_page(@page), per_page: @per_page ) %>
+<% end %>
+
+<% if @courses.length > 0 && !@error %>
+  <%= link_to "Next page", index_path(@profile, page: next_page(@page), per_page: @per_page ) %>
+<% end %>
+
+<% if @error %>
+  <p><b><%= @error %></b></p>
+<% end %>
